@@ -1,5 +1,226 @@
-/* Основные стили проекта. Это стили для темы, которую вы верстаете первой. */
-
 .page {
-  /* сохраните в разметке и стилях класс page. На его основе работает скрипт. */
+  padding: 0 var(--padding-small, 10px);
+  color: var(--color-content, #f1b2ce);
+  font-family: var(--font-primary, 'IBM Plex mono', Helvetica, Arial, sans-serif);
+  font-weight: var(--font-weight-regular, 400);
+  line-height: var(--line-height-main, 1.3);
+  background-image: url(../images/cover-image-dark.png);
+  background-position: center;
+  background-size: cover;
+  background-attachment: fixed;
+  min-inline-size: 375px;
+}
+
+/* проверить на переполнении контента */
+.header {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 
+                    var(--row1-height, clamp(36px, 6vw, 46px)) 
+                    var(--row2-height, clamp(137px, 32vw, 244px)) 
+                    var(--row3-height, clamp(257px, 36vw, 272px)) 
+                    var(--row4-height, clamp(238px, 61vw, 462px));
+  grid-template-areas:
+                    "decorated-element"
+                    "theme-menu"
+                    "title"
+                    "description";
+  block-size: max(668px, 100%); /* добавить мин со 100vh */
+}
+
+.decorated-zone::after,
+.decorated-zone::before,
+.header__decorated-element::after,
+.header__decorated-element::before {
+  content: '';
+  position: absolute;
+}
+
+.decorated-zone::after,
+.decorated-zone::before {
+  inline-size: var(--position-size, 25px);
+  block-size: var(--position-size, 25px);
+}
+
+.decorated-zone::after {
+  top: var(--position-small, 10px);
+  right: var(--position-none, 0);
+  border-inline-end: var(--border-width, 1px) solid var(--color-accent, #ff0070);
+  border-block-start: var(--border-width, 1px) solid var(--color-accent, #ff0070);
+}
+
+.decorated-zone::before {
+  bottom: var(--position-small, 10px);
+  left: var(--position-none, 0);
+  border-inline-start: var(--border-width, 1px) solid var(--color-accent, #ff0070);
+  border-block-end: var(--border-width, 1px) solid var(--color-accent, #ff0070);
+}
+
+.header__decorated-element::after {
+  content: 'REC';
+  top: var(--position-small, 10px);
+  right: 28px;
+  color: var(--color-accent, #ff0070);
+  line-height: var(--line-height-medium, 1.39);
+  inline-size: 33px;
+  block-size: 26px;
+}
+
+.header__decorated-element::before {
+  top: 18px;
+  right: 9px;
+  grid-area: decorated-element;
+  border-radius: 50%;
+  box-shadow: 0px 0px 4px 2px var(--color-accent, #ff0070);
+  background-color: var(--color-accent, #ff0070);
+  inline-size: 9px;
+  block-size: 9px;
+}
+
+.header__theme-menu {
+  grid-area: theme-menu;
+  place-self: end;
+  color: var(--color-accent, #ff0070);
+}
+
+.header__theme-menu-item:not(:last-of-type) {
+  margin-block-end: var(--margin-small-s, 10px);
+}
+
+.header__theme-menu-button {
+  border: none;
+  padding: 1.5px 13px;
+  line-height: var(--line-height-small, 1);
+  text-transform: lowercase;
+  background-color: transparent;
+  cursor: pointer;
+  inline-size: 70px;
+  block-size: 26px;
+}
+
+.header__theme-menu-button_active {
+  border: var(--border-width, 1px) solid var(--color-accent, #ff0070);
+  pointer-events: none;
+}
+
+.header__theme-menu-button:hover {
+  border: var(--border-width, 1px) solid rgba(255, 0, 112, 0.6);
+}
+
+.header__theme-menu-button:focus,
+.section__article-description_link:focus {
+  outline: var(--outline-none, none);
+}
+
+.header__theme-menu-button:focus-visible {
+  border-block-end: var(--border-width, 1px) solid var(--color-accent, #ff0070);
+}
+
+.common__title {
+  color: var(--color-header, #db00ff);
+  font-size: clamp(6.44rem, 1.02vw + 6.23rem, 6.67rem);
+  line-height: var(--line-height-large, 0.83);
+}
+
+.header .common__title {
+  grid-area: title;
+  place-self: end start;
+  text-shadow: 4px 4px 0 var(--color-backgound, #ff0070);
+}
+
+.title-decor {
+  background-color: var(--color-backgound, #ff0070);
+}
+
+.header__description {
+  grid-area: description;
+  place-self: center end;
+  margin-block-end: var(--margin-small-s, 10px); /*2*/
+  color: var(--color-title, #000028);
+  font-weight: var(--font-weight-bold, 700);
+  line-height: var(--line-height-main, 1.3);
+  inline-size: 355px;
+
+}
+
+.section {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: auto;
+  gap: var(--gap-medium, 20px);
+  margin-block-end: var(--margin-medium-m, 50px);
+}
+
+.section:nth-of-type(1) {
+  margin-block-start: var(--margin-medium-s, 40px);
+}
+
+.section:last-of-type {
+  margin-block-end: var(--margin-medium-s, 40px);
+}
+
+.section__title,
+.section__article-title,
+.section__article-subtitle {
+  color: var(--color-title, #000028);
+  font-weight: var(--font-weight-bold, 700);
+  font-size: inherit;
+}
+
+.section__title {
+  color: var(--color-accent, #ff0070);
+}
+
+.section__article-subtitle {
+  font-weight: var(--font-weight-regular, 400);
+}
+
+.section__article-description {
+  margin-block-start: var(--margin-small-s, 10px);
+}
+
+.section__article-description_link {
+  text-decoration: none;
+  text-shadow: 2px 2px 0 var(--color-backgound, #ff0070);
+}
+
+.section__article-description_link:hover {
+  border-block-end: var(--border-width, 1px) solid var(--color-content, #f1b2ce);
+}
+
+.section__article-description_link:focus-visible {
+  border: var(--border-width, 1px) solid var(--color-content, #f1b2ce);
+}
+
+.section__article_list-item:not(:nth-child(1)) {
+  margin-block-start: 20px;
+}
+
+.section:nth-of-type(4),
+.section__article_picture {
+  gap: var(--gap-small, 10px);
+}
+
+.section__article_picture {
+  display: grid;
+}
+
+.section__article_picture-image {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.footer {
+  position: relative;
+  display: grid;
+  place-items: center;
+  min-block-size: 668px;
+}
+
+.footer .common__title {
+  text-shadow: 2px 2px 0 var(--color-backgound, #ff0070);
 }
