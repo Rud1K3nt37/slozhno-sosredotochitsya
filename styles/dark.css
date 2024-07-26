@@ -1,7 +1,32 @@
 .page.theme_dark {
-  --color-header: #db00ff;
-  --color-title: #000028;
-  --color-content: #f1b2ce;
   --color-accent: #ff0070;
-  --color-backgound: var(--color-accent);
+  --background-image: url(../images/cover-image-dark.png);
+}
+
+.page.theme_dark .header__decorated-element::after,
+.page.theme_dark .header__decorated-element::before {
+  display: block;
+}
+
+.page.theme_dark .header__theme-menu-button:hover {
+  outline: var(--border-width, 1px) solid rgba(255, 0, 112, 0.4);
+}
+
+.page.theme_dark .header .common__title,
+.page.theme_dark .footer .common__title {
+  --color-accent: #ff0070;
+  --color-title: #db00ff;
+}
+
+.page.theme_dark .background-decor {
+  --color-accent: #ff0070;
+  --color-subtitle: #000028;
+}
+
+.page.theme_dark .section__article-description {
+  --color-content: #f1b2ce;
+}
+
+.page.theme_dark .section__article-description-link {
+  --color-accent: #ff0070;
 }

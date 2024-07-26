@@ -1,4 +1,11 @@
 :root {
+  --color-accent: #ff0070;
+  --color-title: #db00ff;
+  --color-subtitle: #000028;
+  --color-content: #f1b2ce;
+  --background-image: url(../images/cover-image-dark.png);
+  
+
   --font-primary: 'IBM Plex mono';
   --font-weight-regular: 400;
   --font-weight-bold: 700;
@@ -26,10 +33,10 @@
   --position-none: 0;
   --position-size: 25px;
 
-  --row1-height: clamp(36px, 6vw, 46px);
-  --row2-height: clamp(137px, 32vw, 244px);
-  --row3-height: clamp(257px, 36vw, 272px);
-  --row4-height: clamp(238px, 61vw, 462px);
+  --row-size-decor: clamp(36px, 6vw, 46px);
+  --row-size-theme-menu: clamp(137px, 32vw, 244px);
+  --row-size-title: clamp(257px, 36vw, 272px);
+  --row-size-description: clamp(238px, 61vw, 462px);
 
   --border-width: 1px;
 
