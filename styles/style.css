@@ -124,12 +124,13 @@
 .header .common__title {
   grid-area: title;
   place-self: end start;
-  text-shadow: 4px 4px 0 var(--color-accent, #ff0070);
+  text-shadow: 4px 4px 0 var(--color-shadow, #ff0070);
 }
 
 .background-decor {
   color: var(--color-subtitle, #000028);
-  background-color: var(--color-accent, #ff0070);
+  background-color: var(--color-background, #ff0070);
+
 }
 
 .header__description {
@@ -168,7 +169,7 @@
 
 .section__article-description-link {
   text-decoration: none;
-  text-shadow: 2px 2px 0 var(--color-accent, #ff0070);
+  text-shadow: 2px 2px 0 var(--color-link, #ff0070);
 }
 
 .section__article-description-link:hover {
@@ -210,5 +211,5 @@
 }
 
 .footer .common__title {
-  text-shadow: 2px 2px 0 var(--color-accent, #ff0070);
+  text-shadow: 2px 2px 0 var(--color-shadow, #ff0070);
 }
