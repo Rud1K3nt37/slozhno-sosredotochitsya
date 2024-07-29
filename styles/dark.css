@@ -1,30 +1,32 @@
+/* Пытался сделать через :root.theme_dark, но я так понял он привязывается к html и у меня
+не менялись переменные. Пробовал через пробел :root .theme_dark и заработало. Потом дошло,
+что нужно page использовать т.к js меняет классы в body. И перечитаваю комментарий, уже
+совсем запутался. Вот про этот комментарий, который не совсем понял: 
+Комментарий к исправлению: Чтобы переопределить тему или переменные, лучше всего использовать
+псевдокласс :root. Этот псевдоэлемент предоставляет удобный способ управления стилями и
+переменными на уровне всего документа. Пожалуйста, пересмотрите ваши стили и убедитесь, что
+вы правильно применяете :root для переопределения значений.*/
+
 .page.theme_dark {
+    --color-accent: #ff0070;
+    --color-title: #db00ff;
+    --color-subtitle: #000028;
+    --color-content: #f1b2ce;
+    --background-image: url(../images/cover-image-dark.png);
+    --display: block;
+    --hover: rgba(255, 0, 112, 0.4);
+}
+
+/* Ниже добавил классы, т.к prefers-color-sheme: light перебивает стили тёмной темы */
+.page.theme_dark .background-decor {
   --color-accent: #ff0070;
-  --background-image: url(../images/cover-image-dark.png);
-}
-
-.page.theme_dark .header__decorated-element::after,
-.page.theme_dark .header__decorated-element::before {
-  display: block;
-}
-
-.page.theme_dark .header__theme-menu-button:hover {
-  outline: var(--border-width, 1px) solid rgba(255, 0, 112, 0.4);
+  --color-subtitle: #000028;
 }
 
 .page.theme_dark .header .common__title,
 .page.theme_dark .footer .common__title {
   --color-accent: #ff0070;
   --color-title: #db00ff;
-}
-
-.page.theme_dark .background-decor {
-  --color-accent: #ff0070;
-  --color-subtitle: #000028;
-}
-
-.page.theme_dark .section__article-description {
-  --color-content: #f1b2ce;
 }
 
 .page.theme_dark .section__article-description-link {

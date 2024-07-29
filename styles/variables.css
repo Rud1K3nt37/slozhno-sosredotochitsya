@@ -5,7 +5,6 @@
   --color-content: #f1b2ce;
   --background-image: url(../images/cover-image-dark.png);
   
-
   --font-primary: 'IBM Plex mono';
   --font-weight-regular: 400;
   --font-weight-bold: 700;
@@ -41,4 +40,6 @@
   --border-width: 1px;
 
   --outline-none: none;
+  --display: block;
+  --hover: rgba(255, 0, 112, 0.4);
 }

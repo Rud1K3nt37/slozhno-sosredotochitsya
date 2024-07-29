@@ -64,6 +64,7 @@
   line-height: var(--line-height-medium, 1.39);
   inline-size: 33px;
   block-size: 26px;
+  display: var(--display, block);
 }
 
 .header__decorated-element::before {
@@ -75,6 +76,7 @@
   background-color: currentColor;
   inline-size: 9px;
   block-size: 9px;
+  display: var(--display, block);
 }
 
 .header__theme-menu {
@@ -100,7 +102,7 @@
 }
 
 .header__theme-menu-button:hover {
-  outline: var(--border-width, 1px) solid rgba(255, 0, 112, 0.4);
+  outline: var(--border-width, 1px) solid var(--hover, rgba(255, 0, 112, 0.4));
 }
 
 .header__theme-menu-button:focus,
@@ -150,7 +152,7 @@
   margin-block-end: var(--margin-medium-m, 50px);
 }
 
-.title-decor {
+.section-title {
   font-weight: var(--font-weight-bold, 700);
   font-size: inherit;
 }
